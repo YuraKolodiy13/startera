@@ -48,3 +48,30 @@ burger.addEventListener('click', function () {
     navList.classList.toggle('visible')
 });
 
+
+
+let search = document.querySelector('.search-button');
+
+let expand = () =>{
+    search.parentElement.classList.toggle('open')
+    // let input = document.querySelector('.input');
+    // search.classList.toggle('close');
+    // input.classList.toggle('square');
+    // if(search.classList.contains('close')){
+    //     input.focus();
+    // }else {
+    //     input.blur();
+    // }
+
+};
+search.addEventListener('click', expand);
+// function expand() {
+//     $(".search").toggleClass("close");
+//     $(".input").toggleClass("square");
+//     if ($('.search').hasClass('close')) {
+//         $('input').focus();
+//     } else {
+//         $('input').blur();
+//     }
+// }
+// $('button').on('click', expand);

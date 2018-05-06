@@ -231,8 +231,12 @@ body{
     letter-spacing: .01em;
     text-decoration: none;
 }
-.navMain a.active{
+.navMain a.active,
+.navMain a:hover{
     font-family: 'SFProDisplayBold', sans-serif;
+}
+.navMain__logo a:hover{
+    font-family: 'SFProDisplayRegular', sans-serif;
 }
 .userBlock{
     background-color: rgb(118, 134, 255);
@@ -248,15 +252,133 @@ body{
     color: #ffffff;
     padding: 10px;
 }
+a.userBlock__name{
+    position: relative;
+    padding-right: 30px;
+}
+.userBlock__name::after{
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: url("img/user.png") no-repeat;
+}
+/*.search {*/
+    /*border: 2px solid rgb(118, 134, 255);*/
+    /*border-radius: 20px;*/
+    /*width: 59px;*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 10px;*/
+    /*height: 50px;*/
+/*}*/
 .search {
-    border: 2px solid rgb(118, 134, 255);
-    border-radius: 20px;
-    width: 59px;
+    width: 100px;
+    height: 100px;
+    margin: 40px auto 0;
+    background-color: #242628;
+    position: relative;
+    overflow: hidden;
+    transition: all .5s ease;
+}
+.search:before {
+     content: '';
+     display: block;
+     width: 3px;
+     height: 100%;
+     position: relative;
+     background-color: #00FEDE;
+     transition: all .5s ease;
+ }
+.search.open {
+    width: 220px;
+}
+.search.open:before {
+     height: 60px;
+     margin: 20px 0 20px 30px;
+     position: absolute;
+}
+
+.search-box {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    color: #fff;
+    padding: 20px 100px 20px 45px;
+    font-size: 40px;
+}
+.search-box:focus {
+     outline: none;
+}
+
+.search-button {
+    width: 100px;
+    height: 100px;
+    display: block;
     position: absolute;
     right: 0;
-    top: 10px;
-    height: 50px;
+    top: 0;
+    padding: 20px;
+    cursor: pointer;
 }
+
+.search-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: 3px solid #00FEDE;
+    display: block;
+    position: relative;
+    margin-left: 5px;
+    transition: all .5s ease;
+}
+.search-icon:before {
+     content: '';
+     width: 3px;
+     height: 15px;
+     position: absolute;
+     right: -2px;
+     top: 30px;
+     display: block;
+     background-color: #2A2E37;
+     transform: rotate(-45deg);
+     transition: all .5s ease;
+}
+.search-icon:after {
+     content: '';
+     width: 3px;
+     height: 15px;
+     position: absolute;
+     right: -12px;
+     top: 40px;
+     display: block;
+     background-color: #2A2E37;
+     transform: rotate(-45deg);
+     transition: all .5s ease;
+ }
+.open {
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+}
+.open:before {
+     transform: rotate(52deg);
+     right: 22px;
+     top: 23px;
+     height: 18px;
+}
+.open:after {
+     transform: rotate(-230deg);
+     right: 22px;
+     top: 13px;
+     height: 18px;
+ }
 
 
 
@@ -651,6 +773,10 @@ body{
     .userBlock{
         width: 190px;
     }
+    .userBlock__name::after{
+        background-size: 80%;
+        margin-top: 3px;
+    }
     .search{
         width: 39px;
         height: 30px;
@@ -795,8 +921,15 @@ body{
         width: 150px;
         margin-right: 0;
     }
-    .item__info{
+    a.userBlock__name{
         font-size: 16px;
+    }
+    .userBlock__name::after{
+        background-size: 60%;
+        margin-top: 7px;
+    }
+    .item__info{
+        font-size: 15px;
         line-height: 24px;
     }
     .item__title{
@@ -806,6 +939,9 @@ body{
     .item__donate,
     .item__donate .item__in{
         font-size: 15px;
+    }
+    .item__category{
+        right: 15px;
     }
     .partners__title{
         margin-bottom: 30px;
@@ -845,8 +981,11 @@ body{
 }
 
 @media (max-width: 991px){
-    .userBlock{
-        width: 120px;
+    .navMain__wrapper{
+        width: 80%;
+    }
+    .navMain ul{
+        width: 70%;
     }
     .item{
         width: 48%;
@@ -878,6 +1017,9 @@ body{
         height: 40px;
         font-size: 20px;
     }
+    .item__info{
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -896,9 +1038,6 @@ body{
         top: 0;
         transform: rotate(-45deg);
     }
-    .navMain__btn.open{
-    //top: 15%;
-    }
     .navMain ul{
         transform: translate(100%, 150%);
         opacity: 0;
@@ -908,6 +1047,7 @@ body{
     .navMain{
         padding: 35px 50px;
         top: 0;
+        overflow-x: hidden;
     }
     .navMain ul.visible{
         transform: translate(0, 150%);
@@ -963,12 +1103,113 @@ body{
     .footer__nav{
         flex-wrap: wrap;
     }
+    .header__wrapper{
+        padding: 0 23px;
+    }
+    .navMain{
+        padding: 35px 30px;
+    }
+    .projects__wrapper{
+        padding: 0 30px;
+    }
 }
 
 @media (max-width: 579px) {
+    .header{
+        margin-bottom: 0;
+    }
+    .header__wrapper{
+        padding: 0 20px;
+        margin-bottom: 100px;
+    }
+    .header__img{
+        top: 0;
+    }
+    .header__links a{
+        margin-bottom: 10px;
+    }
     .item{
         width: 100%;
         max-width: 350px;
         margin: 0 auto 30px;
+    }
+    .navMain{
+        flex-direction: column;
+        padding: 35px 20px;
+    }
+    .navMain__wrapper{
+        width: 100%;
+    }
+    .navMain__logo{
+        text-align: left;
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 18px;
+    }
+    .userBlock{
+        top: -30px;
+        right: 0;
+    }
+    .search{
+        left: 0;
+    }
+    .navMain a{
+        font-size: 15px;
+        padding: 0;
+    }
+    .header__title{
+        margin-top: 10px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+    .header__info p{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .projects::before{
+        height: 60px;
+        top: -60px;
+    }
+    .projects__wrapper{
+        padding: 0 20px;
+    }
+    .projects__title{
+        font-size: 30px;
+        line-height: 36px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .projects__all{
+        text-align: center;
+    }
+    .projects__all a{
+        padding: 0;
+        position: relative;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .projects__all a::after,
+    .projects__all a::before{
+        right: -25px;
+    }
+    .projects__all a::before{
+        width: 20px;
+        height: 1px;
+    }
+    .projects__all a::after{
+        width: 8px;
+        height: 8px;
+        border-width: 1px;
+    }
+    .projects__all a:hover::before,
+    .projects__all a:hover::after{
+        right: -35px;
+    }
+    .projects::after{
+        height: 60px;
+        bottom: -60px;
+    }
+    .projects{
+        margin: 0;
     }
 }
