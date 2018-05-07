@@ -7,8 +7,16 @@
     src: url('fonts/SF-Pro-Display-Light.otf');
 }
 @font-face {
+    font-family: 'SFProDisplayLightItalic';
+    src: url('fonts/SF-Pro-Display-LightItalic.otf');
+}
+@font-face {
     font-family: 'SFProDisplayRegular';
     src: url('fonts/SF-Pro-Display-Regular.otf');
+}
+@font-face {
+    font-family: 'SFProDisplayMedium';
+    src: url('fonts/SF-Pro-Display-Medium.otf');
 }
 @font-face {
     font-family: 'SFProDisplayBold';
@@ -59,7 +67,7 @@ body{
     line-height: 90px;
     color: #313131;
     text-transform: uppercase;
-    font-family: 'SFProDisplayBold', Arial, sans-serif;
+    font-family: 'SFProDisplayMedium', Arial, sans-serif;
 }
 .header__info p{
     font-size: 60px;
@@ -216,13 +224,13 @@ body{
     top: 8px;
 }
 .navMain ul{
-    margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 60%;
+    margin: 0 10px 0 0;
 }
 .navMain a{
     font-size: 27px;
@@ -231,12 +239,13 @@ body{
     letter-spacing: .01em;
     text-decoration: none;
 }
-.navMain a.active,
-.navMain a:hover{
-    font-family: 'SFProDisplayBold', sans-serif;
+.navMain ul a{
+    display: block;
+    min-width: 60px;
 }
-.navMain__logo a:hover{
-    font-family: 'SFProDisplayRegular', sans-serif;
+.navMain a.active,
+.navMain ul a:hover{
+    font-family: 'SFProDisplayBold', sans-serif;
 }
 .userBlock{
     background-color: rgb(118, 134, 255);
@@ -246,7 +255,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 100px;
+    margin-right: 10px;
+    flex: none;
 }
 .userBlock a{
     color: #ffffff;
@@ -266,35 +276,26 @@ a.userBlock__name{
     height: 40px;
     background: url("img/user.png") no-repeat;
 }
-/*.search {*/
-    /*border: 2px solid rgb(118, 134, 255);*/
-    /*border-radius: 20px;*/
-    /*width: 59px;*/
-    /*position: absolute;*/
-    /*right: 0;*/
-    /*top: 10px;*/
-    /*height: 50px;*/
-/*}*/
+.user__wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
 .search {
-    width: 100px;
-    height: 100px;
-    margin: 40px auto 0;
-    background-color: #242628;
+    width: 60px;
+    height: 40px;
+    border: 2px solid #7686ff;
+    border-radius: 40px;
     position: relative;
     overflow: hidden;
+    margin-top: 15px;
     transition: all .5s ease;
 }
-.search:before {
-     content: '';
-     display: block;
-     width: 3px;
-     height: 100%;
-     position: relative;
-     background-color: #00FEDE;
-     transition: all .5s ease;
- }
+
 .search.open {
     width: 220px;
+    height: 40px;
+    margin-top: 15px;
 }
 .search.open:before {
      height: 60px;
@@ -303,64 +304,65 @@ a.userBlock__name{
 }
 
 .search-box {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
     box-shadow: none;
     border: none;
     background: transparent;
     color: #fff;
-    padding: 20px 100px 20px 45px;
-    font-size: 40px;
+    padding: 10px;
+    font-size: 20px;
 }
 .search-box:focus {
      outline: none;
 }
 
 .search-button {
-    width: 100px;
-    height: 100px;
+    width: 30px;
+    height: 30px;
     display: block;
     position: absolute;
     right: 0;
     top: 0;
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
 }
 
 .search-icon {
-    width: 40px;
-    height: 40px;
+    width: 18px;
+    height: 18px;
     border-radius: 40px;
-    border: 3px solid #00FEDE;
+    border: 2px solid #7686ff;
     display: block;
     position: relative;
-    margin-left: 5px;
     transition: all .5s ease;
 }
 .search-icon:before {
-     content: '';
-     width: 3px;
-     height: 15px;
-     position: absolute;
-     right: -2px;
-     top: 30px;
-     display: block;
-     background-color: #2A2E37;
-     transform: rotate(-45deg);
-     transition: all .5s ease;
+    content: '';
+    width: 2px;
+    height: 15px;
+    position: absolute;
+    right: -7px;
+    top: 9px;
+    display: block;
+    background-color: #7686ff;
+    transform: rotate(-56deg);
+    transition: all .5s ease;
 }
-.search-icon:after {
-     content: '';
-     width: 3px;
-     height: 15px;
-     position: absolute;
-     right: -12px;
-     top: 40px;
-     display: block;
-     background-color: #2A2E37;
-     transform: rotate(-45deg);
-     transition: all .5s ease;
- }
+.open .search-icon{
+    height: 2px;
+    border: none;
+    background-color: #7686ff;
+    transform: rotate(45deg);
+    margin-top: 10px;
+}
+.open .search-icon::before{
+    height: 18px;
+    right: 8px;
+    top: -8px;
+    transform: none;
+}
+
 .open {
     margin: 0;
     width: 60px;
@@ -373,12 +375,7 @@ a.userBlock__name{
      top: 23px;
      height: 18px;
 }
-.open:after {
-     transform: rotate(-230deg);
-     right: 22px;
-     top: 13px;
-     height: 18px;
- }
+
 
 
 
@@ -388,6 +385,7 @@ a.userBlock__name{
     padding: 50px 0;
     background-color: #f8f8f8;
     position: relative;
+    font-family: 'SFProDisplayMedium', Arial, sans-serif;
 }
 .projects::before{
     content: '';
@@ -457,6 +455,7 @@ a.userBlock__name{
     font-size: 18px;
     color: #2a2a2a;
     margin-bottom: 25px;
+    font-family: 'SFProDisplayRegular', Arial, sans-serif;
 }
 .item__donate span{
     color: #c1bfbf;
@@ -464,9 +463,11 @@ a.userBlock__name{
 .item__percent{
     color: #aba9a9;
     margin-bottom: 30px;
+    font-family: 'SFProDisplayLight', Arial, sans-serif;;
 }
 .item__to{
     color: #bcbaba;
+    font-family: 'SFProDisplayLight', Arial, sans-serif;;
 }
 .item__progress{
     height: 4px;
@@ -483,6 +484,7 @@ a.userBlock__name{
     position: absolute;
     bottom: 30px;
     right: 30px;
+    font-family: 'SFProDisplayLight', Arial, sans-serif;;
 }
 .item__category a{
     text-decoration: underline;
@@ -517,6 +519,7 @@ a.userBlock__name{
     text-decoration: none;
     transition: .5s;
     padding-right: 60px;
+    font-family: 'SFProDisplayLight', Arial, sans-serif;;
 }
 .projects__all a::before{
     content: '';
@@ -562,6 +565,7 @@ a.userBlock__name{
     line-height: 85px;
     color: #202020;
     margin-bottom: 60px;
+    font-family: 'SFProDisplayMedium', Arial, sans-serif;
 }
 .slider__items{
     display: flex;
@@ -597,6 +601,7 @@ a.userBlock__name{
     line-height: 55px;
     color: #2a2a2a;
     margin-bottom: 50px;
+    font-family: 'SFProDisplayLight', Arial, sans-serif;
 }
 .subscribe input{
     border: 2px solid #00f9cd;
@@ -605,6 +610,8 @@ a.userBlock__name{
     width: 290px;
     padding: 25px;
     margin-right: 20px;
+    color: #282828;
+    font-family: 'SFProDisplayLightItalic', Arial, sans-serif;
 }
 .subscribe button{
     background-color: #00f9cd;
@@ -615,8 +622,7 @@ a.userBlock__name{
     padding: 20px;
     font-size: 24px;
     color: #ffffff;
-    font-weight: lighter;
-    font-family: "SF-Pro-Display-Light", Arial, sans-serif;
+    font-family: 'SFProDisplayLight', Arial, sans-serif;
 }
 .footer {
     background: url("img/footer.bg.png") no-repeat center top;
@@ -638,9 +644,9 @@ a.userBlock__name{
     font-size: 24px;
     line-height: 60px;
     letter-spacing: .05em;
-    font-weight: bold;
     padding-left: 40px;
     position: relative;
+    font-family: 'SFProDisplayBold', Arial, sans-serif;
 }
 .footerNav p::before{
     content: '';
@@ -714,7 +720,7 @@ a.userBlock__name{
     margin-top: 30px;
 }
 .footer__author{
-    border-bottom: 2px solid #fff;
+    text-decoration: underline;
 }
 .hr{
     opacity: .55;
@@ -767,22 +773,19 @@ a.userBlock__name{
         width: auto;
     }
     .navMain a{
-        font-size: 20px;
-        line-height: 31px;
+        font-size: 18px;
+        line-height: 24px;
     }
     .userBlock{
         width: 190px;
     }
     .userBlock__name::after{
-        background-size: 80%;
-        margin-top: 3px;
+        background-size: 70%;
+        margin-top: 5px;
     }
-    .search{
-        width: 39px;
-        height: 30px;
-    }
-    .search input{
-        display: none;
+    .search,
+    .search.open{
+        margin-top: 0;
     }
     .projects{
         margin: 50px 0 100px;
@@ -913,13 +916,15 @@ a.userBlock__name{
         max-width: none;
         padding: 0 50px;
     }
+    .navMain ul{
+        width: 80%;
+    }
     .navMain a{
         font-size: 18px;
         line-height: 28px;
     }
     .userBlock{
         width: 150px;
-        margin-right: 0;
     }
     a.userBlock__name{
         font-size: 16px;
@@ -981,11 +986,17 @@ a.userBlock__name{
 }
 
 @media (max-width: 991px){
+    .header__wrapper{
+        margin-top: 150px;
+    }
     .navMain__wrapper{
-        width: 80%;
+        width: 60%;
     }
     .navMain ul{
-        width: 70%;
+        width: 100%;
+    }
+    .navMain__logo{
+        margin-right: 100px;
     }
     .item{
         width: 48%;
@@ -1020,6 +1031,11 @@ a.userBlock__name{
     .item__info{
         font-size: 14px;
     }
+    .user__wrapper{
+        position: absolute;
+        top: 50px;
+        right: 0;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1031,10 +1047,12 @@ a.userBlock__name{
         background-color: rgba(255, 255, 255, 0);
     }
     .navMain__btn.open span::before{
+        left: 50%;
         top: 0;
         transform: rotate(45deg);
     }
     .navMain__btn.open span::after{
+        left: 50%;
         top: 0;
         transform: rotate(-45deg);
     }
@@ -1045,9 +1063,9 @@ a.userBlock__name{
         width: 500px;
     }
     .navMain{
-        padding: 35px 50px;
         top: 0;
         overflow-x: hidden;
+        padding: 35px 30px 50px;
     }
     .navMain ul.visible{
         transform: translate(0, 150%);
@@ -1057,20 +1075,15 @@ a.userBlock__name{
     .header__img img{
         max-width: 80%;
     }
-    .userBlock{
-        position: absolute;
-        right: 100px;
-        top: 50%;
-        transform: translateY(-50%);
-        box-shadow: none;
-    }
-    .search{
-        right: 50px;
-        top: 50%;
-        transform: translateY(-50%);
+    .user__wrapper{
+        top: 0;
+        right: 70px;
     }
     .navMain a{
         padding: 5px;
+    }
+    .userBlock a{
+        padding-right: 30px;
     }
     .header__wrapper{
         margin-top: 150px;
@@ -1106,9 +1119,6 @@ a.userBlock__name{
     .header__wrapper{
         padding: 0 23px;
     }
-    .navMain{
-        padding: 35px 30px;
-    }
     .projects__wrapper{
         padding: 0 30px;
     }
@@ -1117,6 +1127,7 @@ a.userBlock__name{
 @media (max-width: 579px) {
     .header{
         margin-bottom: 0;
+        background-size: 90%;
     }
     .header__wrapper{
         padding: 0 20px;
@@ -1128,34 +1139,72 @@ a.userBlock__name{
     .header__links a{
         margin-bottom: 10px;
     }
+    .navMain__wrapper{
+        width: 100%;
+    }
     .item{
         width: 100%;
         max-width: 350px;
         margin: 0 auto 30px;
     }
     .navMain{
-        flex-direction: column;
         padding: 35px 20px;
-    }
-    .navMain__wrapper{
-        width: 100%;
+        flex-direction: column;
     }
     .navMain__logo{
         text-align: left;
-        margin-bottom: 20px;
-        width: 100%;
         font-size: 18px;
     }
-    .userBlock{
-        top: -30px;
-        right: 0;
+    .navMain__logo{
+        margin: 0 0 20px;
+        font-size: 20px;
     }
     .search{
-        left: 0;
+        height: 30px;
+        width: 50px;
+    }
+    .search.open {
+        width: 150px;
+        height: 30px;
+    }
+    .search-button{
+        padding: 5px;
+        width: 20px;
+        height: 20px;
+        right: 10px;
+    }
+    .search-icon:before{
+        height: 12px;
+        right: -6px;
+        top: 6px;
+    }
+    .search-icon{
+        width: 10px;
+        height: 10px;
+    }
+    .search-box{
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+    .open .search-icon{
+        width: 18px;
+    }
+    .userBlock{
+        width: 120px;
     }
     .navMain a{
         font-size: 15px;
         padding: 0;
+    }
+    .navMain__logo{
+        margin-left: auto;
+    }
+    .userBlock__name::after{
+        background-size: 40%;
+        margin-top: 11px;
+    }
+    .userBlock a{
+        padding-right: 30px;
     }
     .header__title{
         margin-top: 10px;
@@ -1211,5 +1260,40 @@ a.userBlock__name{
     }
     .projects{
         margin: 0;
+    }
+    .partners{
+        margin-bottom: 0;
+    }
+    .partners__title{
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 20px;
+    }
+    .subscribe{
+        margin-bottom: 0;
+    }
+    .subscribe__title{
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    .subscribe input{
+        margin: 0 0 20px;
+    }
+    .footerNav__item{
+        width: 100%;
+    }
+    .social{
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .social__btn{
+        margin: 10px;
+    }
+    .footer__info{
+        font-size: 12px;
+    }
+    .footer__copyright{
+        width: 55%;
     }
 }
