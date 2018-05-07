@@ -1,26 +1,26 @@
 @font-face {
     font-family: 'SFProDisplayThin';
-    src: url('fonts/SF-Pro-Display-Thin.otf');
+    src: url('../fonts/SF-Pro-Display-Thin.otf');
 }
 @font-face {
     font-family: 'SFProDisplayLight';
-    src: url('fonts/SF-Pro-Display-Light.otf');
+    src: url('../fonts/SF-Pro-Display-Light.otf');
 }
 @font-face {
     font-family: 'SFProDisplayLightItalic';
-    src: url('fonts/SF-Pro-Display-LightItalic.otf');
+    src: url('../fonts/SF-Pro-Display-LightItalic.otf');
 }
 @font-face {
     font-family: 'SFProDisplayRegular';
-    src: url('fonts/SF-Pro-Display-Regular.otf');
+    src: url('../fonts/SF-Pro-Display-Regular.otf');
 }
 @font-face {
     font-family: 'SFProDisplayMedium';
-    src: url('fonts/SF-Pro-Display-Medium.otf');
+    src: url('../fonts/SF-Pro-Display-Medium.otf');
 }
 @font-face {
     font-family: 'SFProDisplayBold';
-    src: url('fonts/SF-Pro-Display-Bold.otf');
+    src: url('../fonts/SF-Pro-Display-Bold.otf');
 }
 
 body{
@@ -31,7 +31,7 @@ body{
 
 /* ----------------------------header  ------------------------       */
 .header{
-    background: url("img/header-bg.png") no-repeat right top;
+    background: url("../img/header-bg.png") no-repeat right top;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -257,6 +257,10 @@ body{
     align-items: center;
     margin-right: 10px;
     flex: none;
+    transition: .5s;
+}
+.userBlock:hover{
+    background-color: #9AA5FD;
 }
 .userBlock a{
     color: #ffffff;
@@ -274,7 +278,7 @@ a.userBlock__name{
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background: url("img/user.png") no-repeat;
+    background: url("../img/user.png") no-repeat;
 }
 .user__wrapper{
     display: flex;
@@ -291,11 +295,15 @@ a.userBlock__name{
     margin-top: 15px;
     transition: all .5s ease;
 }
+.search:hover{
+    border-color: #C58D06;
+}
 
 .search.open {
     width: 220px;
     height: 40px;
     margin-top: 15px;
+    border-color: #C58D06;
 }
 .search.open:before {
      height: 60px;
@@ -394,7 +402,7 @@ a.userBlock__name{
     display: block;
     width: 100%;
     height: 168px;
-    background: url("img/projects-before.png") no-repeat;
+    background: url("../img/projects-before.png") no-repeat;
     background-size: cover;
 }
 .projects::after{
@@ -404,7 +412,7 @@ a.userBlock__name{
     display: block;
     width: 100%;
     height: 228px;
-    background: url("img/projects-after.png") no-repeat;
+    background: url("../img/projects-after.png") no-repeat;
     background-size: cover;
 }
 .projects__wrapper{
@@ -504,6 +512,13 @@ a.userBlock__name{
     justify-content: center;
     align-items: center;
     box-shadow: 0 12px 29px 0 rgba(41, 41, 41, 0.49);
+    cursor: pointer;
+}
+.item__like i{
+    transition: .5s;
+}
+.item__like i:hover{
+    color: darkred;
 }
 
 .item__like i{
@@ -586,6 +601,10 @@ a.userBlock__name{
 .slider__item img{
     width: 114px;
     height: auto;
+    transition: .5s;
+}
+.slider__item img:hover{
+    transform: rotate(360deg);
 }
 .slider .slick-track{
     display: flex;
@@ -612,6 +631,12 @@ a.userBlock__name{
     margin-right: 20px;
     color: #282828;
     font-family: 'SFProDisplayLightItalic', Arial, sans-serif;
+    transition: .5s;
+}
+.subscribe input:focus,
+.subscribe input:hover{
+    outline: none;
+    border-color: #7686FF;
 }
 .subscribe button{
     background-color: #00f9cd;
@@ -623,9 +648,15 @@ a.userBlock__name{
     font-size: 24px;
     color: #ffffff;
     font-family: 'SFProDisplayLight', Arial, sans-serif;
+    transition: .5s;
+    cursor: pointer;
 }
+.subscribe button:hover{
+    background-color: #7686FF;
+}
+
 .footer {
-    background: url("img/footer.bg.png") no-repeat center top;
+    background: url("../img/footer.bg.png") no-repeat center top;
     background-size: cover;
     font-family: 'SF-Pro-Display-Light', Arial, sans-serif;
     padding: 100px 0 50px;
@@ -670,7 +701,13 @@ a.userBlock__name{
     text-decoration: none;
     font-size: 18px;
     line-height: 60px;
-    font-weight: lighter;
+    transition: .5s;
+    display: block;
+}
+.footerNav li > a:hover{
+    color: #00f9cd;
+    transform: translateX(10px);
+    transition: .5s;
 }
 .footerNav__item span{
     color: #2a2a2a;
@@ -727,7 +764,7 @@ a.userBlock__name{
 }
 
 
-@media (max-width: 1629px){
+@media (max-width: 1645px){
     .header{
         background-size: 80%;
     }
